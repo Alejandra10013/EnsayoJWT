@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mini taller JWT</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
   <style>
     body {
       font-family: monospace;
@@ -14,70 +14,54 @@
   </style>
 </head>
 
-<body class="">
-  <nav>
-    <div>
-
-    </div>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a href="#" class="nav-link">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" style="display: none;">Logout</a>
+          <a class="nav-link d-none" id="logout">Logout</a>
         </li>
       </ul>
     </div>
   </nav>
 
-
-
-
   <div class="container">
     <div class="row justify-content-center align-items-center p-5">
       <div class="col-md-12">
-        <h3 class="text-center">
-          Mini taller Jwt
-        </h3>
+        <h3 class="text-center">Mini taller Jwt</h3>
       </div>
       <div class="col-md-6 d-block" id="contenedorFormulario">
         <form id="formulario">
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" />
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password" autocomplete="on">
+            <input type="password" class="form-control" id="password" />
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
-      <div class="col-md-12 py-5" id="tablaPost" style="display: none;">
+      <div class="col-md-12 d-none py-5" id="contenedorTabla">
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">Id Post</th>
+              <th scope="col">Id post</th>
               <th scope="col">Titulo</th>
               <th scope="col">Body</th>
               <th scope="col">User Id</th>
             </tr>
           </thead>
-          <tbody id="cuerpoTablaPost">
-          </tbody>
-        </table>
-      </div>
-      <div class="col-md-12 py-5" id="tablaAlbums" style="display: none;">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Id Post</th>
-              <th scope="col">Titulo</th>
-              <th scope="col">Body</th>
-          </thead>
-          <tbody id="cuerpoTablaAlbum">
-          </tbody>
+          <tbody id="cuerpoTabla"></tbody>
         </table>
       </div>
     </div>

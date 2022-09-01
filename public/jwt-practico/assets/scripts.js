@@ -22,6 +22,7 @@ const login = async (email, password) => {
         const { token } = await response.json();
         localStorage.setItem("token", token);
         $("#contenedorFormulario").hide();
+        $("#logout").show();
         getPost(token);
     } catch (error) {
         console.log(error);
@@ -48,7 +49,7 @@ const getPost = async (jwt) => {
 };
 
 const cargarTabla = (posts) => {
-    let tablaPosts = document.getElementById("cuerpoTablaPost");
+    let tablaPosts = document.getElementById("cuerpoTabla");
     // console.log(posts);
     let acumulador = "";
 
@@ -63,9 +64,10 @@ const cargarTabla = (posts) => {
             </tr>
         `
     });
+
     tablaPosts.innerHTML = acumulador;
 
-    $("#tablaPost").show();
+    $("#contenedorTabla").show();
 };
 
 document.getElementById("logout").addEventListener("click", () => {
@@ -78,6 +80,7 @@ const inicio = () => {
     const token = localStorage.getItem("token");
     if (token) {
         $("#contenedorFormulario").hide();
+        $("#contenedorTabla").show();
         $("#logout").show();
         // $("#contenedorFormulario").removeClass("d-block").addClass("d-none");
         // $("#contenedor_tabla").removeClass("d-none").addClass("d-block");
@@ -86,8 +89,11 @@ const inicio = () => {
         // $("#contenedorFormulario").removeClass("d-none").addClass("d-block");
         // $("#contenedor_tabla").removeClass("d-block").addClass("d-none");
         $("#contenedorFormulario").show();
+        $("#contenedorTabla").hide();
+        $("#logout").hide();
     }
 };
+
 inicio();
 
 
@@ -110,25 +116,24 @@ const getAlbum = async (lbm) => {
     }
 }
 
-const tablaAlbums = (albums) => {
-    let tablaAlbums = document.getElementById("cuerpoTablaAlbum");
-    let acumulador = "";
+// const tablaAlbums = (albums) => {
+//     let tablaAlbums = document.getElementById("cuerpoTablaAlbum");
+//     let acumulador = "";
 
-    albums.forEach((album) => {
-    //     acumulador += `
-    //         <tr>
-    //             <td>${album.}</td>
-    //             <td>${album.}</td>
-    //             <td>${album.}</td>
-    //             <td>${album.}</td>
-    //             <td>${album.}</td>
-    //         </tr>
+//     albums.forEach((album) => {
+//     //     acumulador += `
+//     //         <tr>
+//     //             <td>${album.}</td>
+//     //             <td>${album.}</td>
+//     //             <td>${album.}</td>
+//     //             <td>${album.}</td>
+//     //             <td>${album.}</td>
+//     //         </tr>
         
-    //     `
-    });
+//     //     `
+//     });
 
-    tablaAlbums.innerHTML = acumulador;
+//     tablaAlbums.innerHTML = acumulador;
 
-    $("#tablaAlbum").show();
-}
-
+//     $("#tablaAlbum").show();
+// }
